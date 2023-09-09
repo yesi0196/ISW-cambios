@@ -126,7 +126,8 @@
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for="zip">CPA</label>
-                            <input type="text" class="form-control" id="zip" placeholder="" required>
+                            <input type="text" class="form-control" id="zip" placeholder="" required min="1" maxlength="4">
+                            <div id="mensajeErrorZip" style="color: red;"></div>
                             <div class="invalid-feedback">
                                 Ingrese un codigo postal.
                             </div>
@@ -165,8 +166,8 @@
 
                         <div id="payWithDiv" class="col-md-4 mb-3" style="display: block;">
                             <label for="efectivo">Efecivo con que abonará</label>
-                            <input type="text" class="form-control" id="payWith" placeholder="" required>
-                            <!-- agregar otro id distinto -->
+                            <input type="text" class="form-control" id="efectivo" placeholder="" required  min="1">
+                            <div id="mensajeErrorEfectivo" style="color: red;"></div>
                             <div class="invalid-feedback">
                                 Este campo es obligatorio
                             </div>
@@ -188,14 +189,16 @@
                         <div class="row">
                             <div class="col-md-8 mb-3">
                                 <label for="cc-number">Número de tarjeta</label>
-                                <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                                <input type="text" class="form-control" id="cc-number" placeholder="" required min="1" maxlength="16">
+                                <div id="mensajeErrorCc-number" style="color: red;"></div>
                                 <div class="invalid-feedback">
                                     Este campo es obligatorio
                                 </div>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label for="cc-expiration">Código de seguridad</label>
-                                <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                                <input type="text" class="form-control" id="cc-cvv" placeholder="" required min="1" maxlength="3">
+                                <div id="mensajeErrorCc-cvv" style="color: red;"></div>
                                 <div class="invalid-feedback">
                                     Este campo es obligatorio
                                 </div>
@@ -442,7 +445,27 @@
         });
     </script>
 
-    
+    <script>
+        function validarSoloNumeros(idCampo, idMensajeError) {
+            var campo = document.getElementById(idCampo);
+            var mensajeError = document.getElementById(idMensajeError);
+
+            campo.addEventListener("input", function () {
+                var valor = this.value;
+                if (!/^\d+$/.test(valor)) {
+                    mensajeError.textContent = "Ingrese solo números.";
+                    campo.setCustomValidity("Ingrese solo números.");
+                } else {
+                    mensajeError.textContent = "";
+                    campo.setCustomValidity("");
+                } 
+            });
+        }
+        validarSoloNumeros("zip","mensajeErrorZip")
+        validarSoloNumeros("efectivo", "mensajeErrorEfectivo")
+        validarSoloNumeros("cc-number", "mensajeErrorCc-number")
+        validarSoloNumeros("cc-cvv","mensajeErrorCc-cvv");
+    </script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
