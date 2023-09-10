@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="/imagenes/logo.ico">
+    <link rel="icon" href="./imagenes/logo.ico">
     <title>Finalizar la compra</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/checkout/">
@@ -23,7 +23,7 @@
 
     <div class="container">
         <div class="py-5 text-center">
-            <img class="mb-4 d-block mx-auto " src="/imagenes/delivereat.ico">
+            <img class="mb-4 d-block mx-auto " src="./imagenes/delivereat.ico">
             <h2>Finalizar la compra</h2>
 
         </div>
@@ -41,7 +41,7 @@
                             <small class="text-muted">Aros de cebolla con aderezo de salsa barbacoa</small>
                         </div>
                         <span class="text-muted importe">$1200</span>
-                        <button class="btn btn-danger btn-xs eliminar">Eliminar</button>
+                        <button class="btn btn-danger btn-xs eliminar">X</button>
                     </li>
                     <li class="list-group-item d-flex justify-content-between lh-condensed">
                         <div>
@@ -49,7 +49,7 @@
                             <small class="text-muted">354 ml</small>
                         </div>
                         <span class="text-muted importe">$890</span>
-                        <button class="btn btn-danger btn-xs eliminar">Eliminar</button>
+                        <button class="btn btn-danger btn-xs eliminar">X</button>
                     </li>
                     <li class="list-group-item d-flex justify-content-between lh-condensed">
                         <div>
@@ -57,7 +57,7 @@
                             <small class="text-muted">Sandwich de milanesa plant based con sabor a carne</small>
                         </div>
                         <span class="text-muted importe">$3700</span>
-                        <button class="btn btn-danger btn-xs eliminar">Eliminar</button>
+                        <button class="btn btn-danger btn-xs eliminar">X</button>
                     </li>
                     <li class="list-group-item d-flex justify-content-between bg-light">
                         <div class="text-success">
@@ -103,9 +103,9 @@
                         <div class="col-md-5 mb-3">
                             <label for="country">Provincia</label>
                             <select class="custom-select d-block w-100" id="country" required>
-                  <option value="">Seleccione...</option>
-                  <option>Córdoba</option>                                  
-                </select>
+                                <option value="">Seleccione...</option>
+                                <option>Córdoba</option>
+                            </select>
                             <div class="invalid-feedback">
                                 Porfavor seleccione una provincia válida.
                             </div>
@@ -113,12 +113,12 @@
                         <div class="col-md-4 mb-3">
                             <label for="state">Localidad</label>
                             <select class="custom-select d-block w-100" id="state" required>
-                  <option value="">Seleccione...</option>
-                  <option>Córdoba Capital</option>
-                  <option>Jesus María</option>
-                  <option>Alta Gracia</option>
-                  <option>Carlos Paz</option>
-                </select>
+                                <option value="">Seleccione...</option>
+                                <option>Córdoba Capital</option>
+                                <option>Jesus María</option>
+                                <option>Alta Gracia</option>
+                                <option>Carlos Paz</option>
+                            </select>
                             <div class="invalid-feedback">
                                 Porfavor seleccione una localidad.
                             </div>
@@ -134,7 +134,8 @@
                     <hr class="mb-4">
                     <div class="custom-control custom-checkbox">
                         <input type="checkbox" name="opcion" class="custom-control-input" id="same-address">
-                        <label class="custom-control-label" for="same-address">La dirección de envío es mi dirección</label>
+                        <label class="custom-control-label" for="same-address">La dirección de envío es mi
+                            dirección</label>
                     </div>
                     <div class="custom-control custom-checkbox">
                         <input type="checkbox" name="opcion" class="custom-control-input" id="save-info">
@@ -145,24 +146,23 @@
                     <h4 class="mb-3">Método de Pago</h4>
 
                     <div class="d-block my-3">
+
                         <div class="custom-control custom-radio">
-                            <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
-                            <label class="custom-control-label" for="credit">Tarjeta de Crédito</label>
-                        </div>
-                        <div class="custom-control custom-radio">
-                            <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
-                            <label class="custom-control-label" for="debit">Tarjeta de Debito</label>
-                        </div>
-                        <div class="custom-control custom-radio">
-                            <input id="cash" name="paymentMethod" type="radio" class="custom-control-input" required>
+                            <input id="cash" name="paymentMethod" type="radio" class="custom-control-input" checked>
                             <label class="custom-control-label" for="cash">Efectivo</label>
                             <!-- donde diga paypal en el código cambiar por cash -->
                         </div>
+
+                        <div class="custom-control custom-radio">
+                            <input id="credit" name="paymentMethod" type="radio" class="custom-control-input">
+                            <label class="custom-control-label" for="credit">Tarjeta de Debito/Crédito</label>
+                        </div>
                         <!-- falta que se habilite la cantidad de efectivo o datos de tarjeta segun lo que se selecciono -->
                     </div>
+
                     <div class="row">
 
-                        <div id="payWithDiv" class="col-md-4 mb-3">
+                        <div id="payWithDiv" class="col-md-4 mb-3" style="display: block;">
                             <label for="efectivo">Efecivo con que abonará</label>
                             <input type="text" class="form-control" id="payWith" placeholder="" required>
                             <!-- agregar otro id distinto -->
@@ -172,7 +172,7 @@
                         </div>
 
                     </div>
-                    <div id="paymentDetails">
+                    <div id="paymentDetails" style="display: none;">
                         <div class="row">
                             <div class="col-md-12 mb-3">
                                 <label for="cc-name">Nombre y Apellido</label>
@@ -207,18 +207,18 @@
                                 <label for="cc-expiration">Mes de vencimiento</label>
                                 <select class="custom-select d-block w-100" id="cc-expiration" required>
                                     <option value="">Seleccione...</option>
-                                    <option>01</option> 
-                                    <option>02</option> 
-                                    <option>03</option> 
-                                    <option>04</option> 
-                                    <option>05</option> 
-                                    <option>06</option> 
-                                    <option>07</option> 
-                                    <option>08</option> 
-                                    <option>09</option> 
-                                    <option>10</option> 
-                                    <option>11</option> 
-                                    <option>12</option>  
+                                    <option>01</option>
+                                    <option>02</option>
+                                    <option>03</option>
+                                    <option>04</option>
+                                    <option>05</option>
+                                    <option>06</option>
+                                    <option>07</option>
+                                    <option>08</option>
+                                    <option>09</option>
+                                    <option>10</option>
+                                    <option>11</option>
+                                    <option>12</option>
                                 </select>
                                 <div class="invalid-feedback">
                                     Este campo es obligatorio
@@ -228,7 +228,7 @@
                                 <label for="cc-expiration">Año de vencimiento</label>
                                 <select class="custom-select d-block w-100" id="cc-expiration" required>
                                     <option value="">Seleccione...</option>
-                                <!-- for (var i = 1; i <= 64; i++) {
+                                    <!-- for (var i = 1; i <= 64; i++) {
                                         var optionValue = i.toString().padStart(2, '0');  Agregamos ceros a la izquierda si es necesario
                                         var optionText = optionValue;  El texto de la opción es igual al valor en este caso 
                                         var option = new Option(optionText, optionValue);
@@ -238,35 +238,35 @@
                                         <option value="<?php echo str_pad($i, 2, '0', STR_PAD_LEFT); ?>">
                                             <?php echo str_pad($i, 2, '0', STR_PAD_LEFT); ?>
                                         </option>
-                                    <?php } ?>} -->                               
-                                    <option>23</option> 
-                                    <option>24</option> 
+                                    <?php } ?>} -->
+                                    <option>23</option>
+                                    <option>24</option>
                                     <option>25</option>
-                                    <option>26</option> 
-                                    <option>27</option> 
-                                    <option>28</option> 
-                                    <option>29</option> 
-                                    <option>30</option> 
-                                    <option>31</option> 
-                                    <option>32</option> 
-                                    <option>33</option> 
-                                    <option>34</option> 
-                                    <option>35</option> 
-                                    <option>36</option> 
-                                    <option>37</option>                           
-                                    <option>48</option> 
-                                    <option>49</option> 
-                                    <option>50</option> 
-                                    <option>51</option> 
+                                    <option>26</option>
+                                    <option>27</option>
+                                    <option>28</option>
+                                    <option>29</option>
+                                    <option>30</option>
+                                    <option>31</option>
+                                    <option>32</option>
+                                    <option>33</option>
+                                    <option>34</option>
+                                    <option>35</option>
+                                    <option>36</option>
+                                    <option>37</option>
+                                    <option>48</option>
+                                    <option>49</option>
+                                    <option>50</option>
+                                    <option>51</option>
                                     <option>52</option>
-                                    <option>53</option> 
-                                    <option>54</option> 
-                                    <option>56</option> 
-                                    <option>57</option> 
-                                    <option>58</option> 
-                                    <option>59</option> 
-                                    <option>60</option> 
-                                    <option>61</option> 
+                                    <option>53</option>
+                                    <option>54</option>
+                                    <option>56</option>
+                                    <option>57</option>
+                                    <option>58</option>
+                                    <option>59</option>
+                                    <option>60</option>
+                                    <option>61</option>
                                     <option>62</option>
                                 </select>
                                 <div class="invalid-feedback">
@@ -283,43 +283,37 @@
                             <h4 class="mb-3">¿Cuándo deseas recibir tu pedido?</h4>
 
                             <div class="d-block my-3">
+
                                 <div class="custom-control custom-radio">
-                                    <input id="antesPosible" name="recepcionPedido" type="radio" class="custom-control-input" checked required>
+                                    <input id="antesPosible" name="recepcionPedido" type="radio" checked class="custom-control-input">
                                     <label class="custom-control-label" for="antesPosible">Lo antes posible</label>
                                 </div>
+
                                 <div class="custom-control custom-radio">
-                                    <input id="programado" name="recepcionPedido" type="radio" class="custom-control-input" required>
+                                    <input id="programado" name="recepcionPedido" type="radio" class="custom-control-input">
                                     <label class="custom-control-label" for="programado">Fecha programada</label>
                                 </div>
+
                             </div>
                         </div>
                     </div>
 
                     <!--                      --------------------             -->
-                    <div class="container">
+                    <div id="div-fecha-programada" style="display: none;">
                         <div class="row">
                             <div class='col-sm-6'>
                                 <div class="form-group">
-                                    <div class='input-group date' id='datetimepicker1'>
-                                        <input type='text' class="form-control" />
-                                        <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-calendar"></span>
-                                        </span>
-                                    </div>
+                                    <input type='datetime-local' class="form-control" id="fechaHora" name="fechaHora" class="form-control" required />
+                                    <div class="invalid-feedback d-block" id="error-mensaje-fecha"></div>
                                 </div>
                             </div>
-                            <script type="text/javascript">
-                                $(function() {
-                                    $('#datetimepicker1').datetimepicker();
-                                });
-                            </script>
                         </div>
                     </div>
 
-
-
                     <hr class="mb-4">
-                    <button id="realizarPedido" class="btn btn-primary btn-lg btn-block" type="submit">Relaizar pedido</button>
+                    <button id="realizarPedido" class="btn btn-primary btn-lg btn-block" type="submit">Relaizar
+                        pedido</button>
+
                 </form>
             </div>
         </div>
@@ -334,6 +328,9 @@
         </ul>
     </footer>
     </div>
+
+
+
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -387,6 +384,7 @@
             }, false);
         })();
     </script>
+
     <script>
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
@@ -427,10 +425,14 @@
 
     <!-- inicialización del Datetimepicker que garantice que el DOM se haya cargado completamente -->
     <script>
+        // no lo uso
         document.addEventListener('DOMContentLoaded', function() {
             $('#datetimepicker1').datetimepicker();
         });
     </script>
+
+
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const formulario = document.querySelector('form');
@@ -457,49 +459,27 @@
         });
     </script>
 
+    <!-- Mostrar y ocultar campo efectivo o tarjeta de credito/devito -->
+
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const cashRadio = document.getElementById('cash');
-            const payWithDiv = document.getElementById('payWithDiv');
+        // Obtener referencias a los elementos
+        const cashRadio = document.getElementById("cash");
+        const creditRadio = document.getElementById("credit");
+        const payWithDiv = document.getElementById("payWithDiv")
+        const paymentDetails = document.getElementById("paymentDetails")
 
-            // Función para ocultar o mostrar el campo payWithDiv
-            function togglePayWith() {
-                if (cashRadio.checked) {
-                    payWithDiv.style.display = 'block';
-                } else {
-                    payWithDiv.style.display = 'none';
-                }
+        // Agregar un manejador de eventos para la casilla de verificación
+        creditRadio.addEventListener("change", function() {
+            if (creditRadio.checked) {
+                payWithDiv.style.display = "none"; // Oculta el div pago con efectivo
+                paymentDetails.style.display = "block"; // Mostrar el div pago con tarjeta
             }
-
-            // Llama a la función inicialmente para establecer el estado inicial
-            togglePayWith();
-
-            // Agrega listeners para los radios de pago
-            cashRadio.addEventListener('change', togglePayWith);
-
         });
-    </script>
-    <!-- AVERIGUAR PORQUE EL EVENT LISTENER NO ESTÁ FUNCIONANDO, O PORQUE AL DESELECCIONAR EL CASHRADIO NO SE VUELVEN A MOSTRAR LOS CAMPOS -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const cashRadio = document.getElementById('cash');
-            const paymentDetails = document.getElementById('paymentDetails'); // Nuevo id
-
-            // Función para ocultar o mostrar los elementos adicionales
-            function togglePaymentDetails() {
-                if (!cashRadio.checked) {
-                    paymentDetails.style.display = 'block';
-                } else {
-                    paymentDetails.style.display = 'none';
-                }
+        cashRadio.addEventListener("change", function() {
+            if (cashRadio.checked) {
+                paymentDetails.style.display = "none"; // Oculta el div pago con tarjeta
+                payWithDiv.style.display = "block"; // Mostrar el div pago con efectivo
             }
-
-
-            // Llama a la función inicialmente para establecer el estado inicial
-            togglePaymentDetails();
-
-            // Agrega listeners para los radios de pago           
-            cashRadio.addEventListener('change', togglePaymentDetails);
         });
     </script>
 
@@ -526,6 +506,61 @@
             });
         });
     </script>
+
+
+    <!-- Validar que la fecha no sea inferior a la atual -->
+
+    <script>
+        // Obtener el elemento datetime-local y el elemento div para el mensaje de error
+        const fechaHoraInput = document.getElementById("fechaHora");
+        const errorMensaje = document.getElementById("error-mensaje-fecha");
+        const tect_box_fecha = document.getElementById("");
+
+        // Agregar un evento de escucha al elemento datetime-local
+        fechaHoraInput.addEventListener("input", function() {
+            // Obtener la fecha y hora seleccionada por el usuario
+            const fechaHoraSeleccionada = new Date(fechaHoraInput.value);
+
+            // Obtener la fecha y hora actual
+            const fechaHoraActual = new Date();
+
+            // Comparar la fecha y hora seleccionada con la fecha y hora actual
+            if (fechaHoraSeleccionada < fechaHoraActual) {
+                // La fecha y hora seleccionadas son anteriores a la fecha y hora actual
+                errorMensaje.innerHTML = "La fecha y hora no pueden ser anteriores a la actual.";
+                fechaHoraInput.classList.add('is-invalid')
+            } else {
+                // Limpiar el mensaje de error si la fecha y hora son válidas
+                errorMensaje.innerHTML = "";
+                fechaHoraInput.classList.remove('is-invalid')
+            }
+        });
+    </script>
+
+
+    <!-- Mostrar y ocultar campo de entrega programada -->
+
+    <script>
+        // Obtener referencias a los elementos
+        const divFechaHora = document.getElementById("div-fecha-programada");
+        const cbProgramado = document.getElementById("programado");
+        const cbAntesPosible = document.getElementById("antesPosible");
+        // Agregar un manejador de eventos para la casilla de verificación
+        cbProgramado.addEventListener("change", function() {
+            if (cbProgramado.checked) {
+                fechaHoraInput.value = ""
+                errorMensaje.innerHTML = "";
+                fechaHoraInput.classList.remove('is-invalid')
+                divFechaHora.style.display = "block"; // Mostrar el div si la casilla está marcada
+            }
+        });
+        cbAntesPosible.addEventListener("change", function() {
+            if (cbAntesPosible.checked) {
+                divFechaHora.style.display = "none"; // Oculta el div
+            }
+        });
+    </script>
+
 
 
 </body>
