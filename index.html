@@ -17,15 +17,19 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
-    <link href="pedido.css" rel="stylesheet">
+    <link rel="stylesheet" href="pedido.css" />
 </head>
 
-<body class="bg-light">
+<body>
+
+    <div class="container_img">
+        <img class="mb-4 d-block mx-auto" src="./imagenes/delivereat.png">
+    </div>
 
     <div class="container">
         <div class="py-5 text-center">
-            <img class="mb-4 d-block mx-auto " src="./imagenes/delivereat.ico">
-            <h2>Finalizar la compra</h2>
+
+            <h2 class="principal">Finalizar la compra</h2>
 
         </div>
 
@@ -42,7 +46,7 @@
                             <small class="text-muted">Aros de cebolla con aderezo de salsa barbacoa</small>
                         </div>
                         <span class="text-muted importe">$1200</span>
-                        <button class="btn btn-danger btn-xs eliminar">Eliminar</button>
+                        <button class="btn btn-danger btn-xs eliminar">X</button>
                     </li>
                     <li class="list-group-item d-flex justify-content-between lh-condensed">
                         <div>
@@ -50,7 +54,7 @@
                             <small class="text-muted">354 ml</small>
                         </div>
                         <span class="text-muted importe">$890</span>
-                        <button class="btn btn-danger btn-xs eliminar">Eliminar</button>
+                        <button class="btn btn-danger btn-xs eliminar">X</button>
                     </li>
                     <li class="list-group-item d-flex justify-content-between lh-condensed">
                         <div>
@@ -58,9 +62,9 @@
                             <small class="text-muted">Sandwich de milanesa plant based con sabor a carne</small>
                         </div>
                         <span class="text-muted importe">$3700</span>
-                        <button class="btn btn-danger btn-xs eliminar">Eliminar</button>
+                        <button class="btn btn-danger btn-xs eliminar">X</button>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between bg-light">
+                    <li class="list-group-item d-flex justify-content-between">
                         <div class="text-success">
                             <h6 class="my-0">Código de descuento</h6>
                             <small>CODIGOEJEMPLO</small>
@@ -112,13 +116,15 @@
                             </div>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label for="state">Localidad</label>
+                            <label for="state">Ciudad</label>
                             <select class="custom-select d-block w-100" id="state" required>
                                 <option value="">Seleccione...</option>
-                                <option>Córdoba Capital</option>
-                                <option>Jesus María</option>
-                                <option>Alta Gracia</option>
-                                <option>Carlos Paz</option>
+                                <option>Villa General Belgrano</option>
+                                <option>Nono</option>
+                                <option>Cosquin</option>
+                                <option>Mina Clavero</option>
+                                <option>Santa Rosa de Calamuchita</option>
+                                <option>Villa Carlos Paz</option>
                             </select>
                             <div class="invalid-feedback">
                                 Porfavor seleccione una localidad.
@@ -152,14 +158,15 @@
                         <div class="custom-control custom-radio">
                             <input id="cash" name="paymentMethod" type="radio" class="custom-control-input" checked>
                             <label class="custom-control-label" for="cash">Efectivo</label>
-                            <!-- donde diga paypal en el código cambiar por cash -->
                         </div>
 
                         <div class="custom-control custom-radio">
                             <input id="credit" name="paymentMethod" type="radio" class="custom-control-input">
                             <label class="custom-control-label" for="credit">Tarjeta de Debito/Crédito</label>
-                        </div>                     
-                        <!-- falta que se habilite la cantidad de efectivo o datos de tarjeta segun lo que se selecciono -->
+
+                        </div>
+
+
                     </div>
 
                     <div class="row">
@@ -288,9 +295,11 @@
 
                             <div class="d-block my-3">
 
+
                                 <div class="custom-control custom-radio">   
                                     <input id="antesPosible" name="recepcionPedido" type="radio" checked
                                         class="custom-control-input">
+
                                     <label class="custom-control-label" for="antesPosible">Lo antes posible</label>
                                 </div>
 
@@ -303,13 +312,15 @@
                         </div>
                     </div>
 
-                    <!--                      --------------------             -->
+
                     <div id="div-fecha-programada" style="display: none;">
                         <div class="row">
                             <div class='col-sm-6'>
                                 <div class="form-group">
+
                                     <input type='datetime-local' class="form-control" id="fechaHora" name="fechaHora"
                                         class="form-control" required />
+
                                     <div class="invalid-feedback d-block" id="error-mensaje-fecha"></div>
                                 </div>
                             </div>
@@ -366,8 +377,8 @@
 
 
     <!-- Bootstrap CSS y JS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
 
     <!-- Datetimepicker CSS y JS -->
     <link
@@ -439,8 +450,10 @@
     </script>
 
     <!-- inicialización del Datetimepicker que garantice que el DOM se haya cargado completamente -->
+
     <script> // no lo uso
         document.addEventListener('DOMContentLoaded', function () {
+
             $('#datetimepicker1').datetimepicker();
         });
     </script>
@@ -466,6 +479,7 @@
         validarSoloNumeros("cc-number", "mensajeErrorCc-number")
         validarSoloNumeros("cc-cvv","mensajeErrorCc-cvv");
     </script>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -503,7 +517,9 @@
         const paymentDetails = document.getElementById("paymentDetails")
 
         // Agregar un manejador de eventos para la casilla de verificación
+
         creditRadio.addEventListener("change", function () {
+
             if (creditRadio.checked) {
                 payWithDiv.style.display = "none"; // Oculta el div pago con efectivo
                 paymentDetails.style.display = "block"; // Mostrar el div pago con tarjeta
@@ -551,7 +567,9 @@
         const tect_box_fecha = document.getElementById("");
 
         // Agregar un evento de escucha al elemento datetime-local
+
         fechaHoraInput.addEventListener("input", function () {
+
             // Obtener la fecha y hora seleccionada por el usuario
             const fechaHoraSeleccionada = new Date(fechaHoraInput.value);
 
@@ -580,9 +598,11 @@
         const cbProgramado = document.getElementById("programado");
         const cbAntesPosible = document.getElementById("antesPosible");
         // Agregar un manejador de eventos para la casilla de verificación
+
         cbProgramado.addEventListener("change", function () {
             if (cbProgramado.checked) {
                 fechaHoraInput.value=""
+
                 errorMensaje.innerHTML = "";
                 fechaHoraInput.classList.remove('is-invalid')
                 divFechaHora.style.display = "block"; // Mostrar el div si la casilla está marcada
