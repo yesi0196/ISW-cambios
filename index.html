@@ -42,7 +42,7 @@
                             <small class="text-muted">Aros de cebolla con aderezo de salsa barbacoa</small>
                         </div>
                         <span class="text-muted importe">$1200</span>
-                        <button class="btn btn-danger btn-xs eliminar">Eliminar</button>
+                        <button class="btn btn-danger btn-xs eliminar">X</button>
                     </li>
                     <li class="list-group-item d-flex justify-content-between lh-condensed">
                         <div>
@@ -50,7 +50,7 @@
                             <small class="text-muted">354 ml</small>
                         </div>
                         <span class="text-muted importe">$890</span>
-                        <button class="btn btn-danger btn-xs eliminar">Eliminar</button>
+                        <button class="btn btn-danger btn-xs eliminar">X</button>
                     </li>
                     <li class="list-group-item d-flex justify-content-between lh-condensed">
                         <div>
@@ -58,7 +58,7 @@
                             <small class="text-muted">Sandwich de milanesa plant based con sabor a carne</small>
                         </div>
                         <span class="text-muted importe">$3700</span>
-                        <button class="btn btn-danger btn-xs eliminar">Eliminar</button>
+                        <button class="btn btn-danger btn-xs eliminar">X</button>
                     </li>
                     <li class="list-group-item d-flex justify-content-between bg-light">
                         <div class="text-success">
@@ -157,6 +157,7 @@
                         <div class="custom-control custom-radio">
                             <input id="credit" name="paymentMethod" type="radio" class="custom-control-input">
                             <label class="custom-control-label" for="credit">Tarjeta de Debito/Crédito</label>
+
                         </div>                     
                         <!-- falta que se habilite la cantidad de efectivo o datos de tarjeta segun lo que se selecciono -->
                     </div>
@@ -285,9 +286,11 @@
 
                             <div class="d-block my-3">
 
+
                                 <div class="custom-control custom-radio">   
                                     <input id="antesPosible" name="recepcionPedido" type="radio" checked
                                         class="custom-control-input">
+
                                     <label class="custom-control-label" for="antesPosible">Lo antes posible</label>
                                 </div>
 
@@ -305,8 +308,10 @@
                         <div class="row">
                             <div class='col-sm-6'>
                                 <div class="form-group">
+
                                     <input type='datetime-local' class="form-control" id="fechaHora" name="fechaHora"
                                         class="form-control" required />
+
                                     <div class="invalid-feedback d-block" id="error-mensaje-fecha"></div>
                                 </div>
                             </div>
@@ -436,13 +441,13 @@
     </script>
 
     <!-- inicialización del Datetimepicker que garantice que el DOM se haya cargado completamente -->
+
     <script> // no lo uso
         document.addEventListener('DOMContentLoaded', function () {
+
             $('#datetimepicker1').datetimepicker();
         });
     </script>
-
-    
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -480,7 +485,9 @@
         const paymentDetails = document.getElementById("paymentDetails")
 
         // Agregar un manejador de eventos para la casilla de verificación
+
         creditRadio.addEventListener("change", function () {
+
             if (creditRadio.checked) {
                 payWithDiv.style.display = "none"; // Oculta el div pago con efectivo
                 paymentDetails.style.display = "block"; // Mostrar el div pago con tarjeta
@@ -528,7 +535,9 @@
         const tect_box_fecha = document.getElementById("");
 
         // Agregar un evento de escucha al elemento datetime-local
+
         fechaHoraInput.addEventListener("input", function () {
+
             // Obtener la fecha y hora seleccionada por el usuario
             const fechaHoraSeleccionada = new Date(fechaHoraInput.value);
 
@@ -557,9 +566,11 @@
         const cbProgramado = document.getElementById("programado");
         const cbAntesPosible = document.getElementById("antesPosible");
         // Agregar un manejador de eventos para la casilla de verificación
+
         cbProgramado.addEventListener("change", function () {
             if (cbProgramado.checked) {
                 fechaHoraInput.value=""
+
                 errorMensaje.innerHTML = "";
                 fechaHoraInput.classList.remove('is-invalid')
                 divFechaHora.style.display = "block"; // Mostrar el div si la casilla está marcada
