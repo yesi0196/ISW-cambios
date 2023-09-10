@@ -117,7 +117,8 @@
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for="zip">CPA</label>
-                            <input type="text" class="form-control" id="zip" placeholder="" required>
+                            <input type="text" class="form-control" id="zip" placeholder="" required min="1" maxlength="4">
+                            <div id="mensajeErrorZip" style="color: red;"></div>
                             <div class="invalid-feedback">
                                 Ingrese un codigo postal.
                             </div>
@@ -155,8 +156,8 @@
 
                         <div class="col-md-4 mb-3">
                             <label for="efectivo">Efecivo con que abonará</label>
-                            <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-                            <!-- agregar otro id distinto -->
+                            <input type="text" class="form-control" id="efectivo" placeholder="" required  min="1">
+                            <div id="mensajeErrorEfectivo" style="color: red;"></div>
                             <div class="invalid-feedback">
                                 Este campo es obligatorio
                             </div>
@@ -177,14 +178,16 @@
                     <div class="row">
                         <div class="col-md-8 mb-3">
                             <label for="cc-number">Número de tarjeta</label>
-                            <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                            <input type="text" class="form-control" id="cc-number" placeholder="" required min="1" maxlength="16">
+                            <div id="mensajeErrorCc-number" style="color: red;"></div>
                             <div class="invalid-feedback">
                                 Este campo es obligatorio
                             </div>
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="cc-expiration">Código de seguridad</label>
-                            <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                            <input type="text" class="form-control" id="cc-cvv" placeholder="" required min="1" maxlength="3">
+                            <div id="mensajeErrorCc-cvv" style="color: red;"></div>
                             <div class="invalid-feedback">
                                 Este campo es obligatorio
                             </div>
@@ -313,6 +316,29 @@
             }, false);
         })();
     </script>
+
+        <script>
+        function validarSoloNumeros(idCampo, idMensajeError) {
+            var campo = document.getElementById(idCampo);
+            var mensajeError = document.getElementById(idMensajeError);
+
+            campo.addEventListener("input", function () {
+                var valor = this.value;
+                if (!/^\d+$/.test(valor)) {
+                    mensajeError.textContent = "Ingrese solo números.";
+                    campo.setCustomValidity("Ingrese solo números.");
+                } else {
+                    mensajeError.textContent = "";
+                    campo.setCustomValidity("");
+                } 
+            });
+        }
+        validarSoloNumeros("zip","mensajeErrorZip")
+        validarSoloNumeros("efectivo", "mensajeErrorEfectivo")
+        validarSoloNumeros("cc-number", "mensajeErrorCc-number")
+        validarSoloNumeros("cc-cvv","mensajeErrorCc-cvv");
+    </script>
+    
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
