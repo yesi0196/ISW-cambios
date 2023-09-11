@@ -282,9 +282,27 @@
                                 Este campo es obligatorio
                             </div>
                         </div>
-
+                    </div>
+                </div>
+                        <div id="div-fecha-programada" style="display: none;">
+                            <div class="row">
+                                <div class='col-sm-6'>
+                                    <div class="form-group">
+    
+                                        <input type='datetime-local' class="form-control" id="fechaHora" name="fechaHora"
+                                            class="form-control" required />
+    
+                                        <div class="invalid-feedback d-block" id="error-mensaje-fecha"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
                         <hr class="mb-4">
-                        <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+                        <button id="realizarPedido" class="btn btn-primary btn-lg btn-block" type="submit">Realizar
+                            pedido
+                        </button>
+                        
                 </form>
                 </div>
             </div>
